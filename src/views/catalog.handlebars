@@ -1,0 +1,75 @@
+<div id="carta">
+    {{!-- <img src="https://i.pinimg.com/originals/66/79/b6/6679b67c5fb579305d74dadd2029441c.jpg" width="300px"> --}}
+
+    <h1> Bienvenid@ {{firstname}} {{lastname}} </h1>
+    <p>
+        Email : {{email_}}
+    </p>
+
+    <p>
+        Age :{{age}}
+    </p>
+    <p>
+        UserId :{{uid}}
+    </p>
+    <p>
+        Role : {{role}}
+    </p>
+
+    <a href="/logout" class="boton">
+        LogOut
+    </a>
+
+
+    {{#if swUser}}
+    <a href="/PersonalCartStatic" class="boton">
+        See your Shooping Cart
+    </a>
+    <a href="/api/users/premium/{{uid}}" class="boton">
+        Cambiar de rol
+    </a>
+    {{/if}}
+
+    {{#if swAdmin}}
+    <a href="/realTimeProducts" class="boton">
+        Product Managment Section
+    </a>
+    {{/if}}
+
+    {{#if swPremium}}
+    <a href="/PersonalCartStatic" class="boton">
+        See your Shooping Cart
+    </a>
+    <a href="/realTimeProducts" class="boton">
+        Product Managment Section
+    </a>
+    <a href="/api/users/premium/{{uid}}" class="boton">
+        Cambiar de rol
+    </a>
+    {{/if}}
+
+</div>
+
+
+{{#if swPremium}}
+<div class="container-fluid" style="display: inline">
+    <h2>Product Catalog</h2>
+    <span id="counter" style="display: block"></span>
+    <div id="catalogo" class="row"></div>
+    <div id="cartid"> {{cart}}</div>
+</div>
+{{/if}}
+
+{{#if swUser}}
+<div class="container-fluid" style="display: inline">
+    <h2>Product Catalog</h2>
+    <span id="counter" style="display: block"></span>
+    <div id="catalogo" class="row"></div>
+    <div id="cartid"> {{cart}}</div>
+</div>
+{{/if}}
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/catalog.js"></script>
