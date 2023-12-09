@@ -181,7 +181,7 @@ export const getProductsinCartById = async (req, res) => {
         status: arrayAnswer[0],
         message: arrayAnswer[1]
       }
-      return swWeb ? answer : res.status.send(error)
+      return swWeb ? answer : res.send(error)
     }
     return swWeb ? answer : res.send(answer);
   } catch (error) {
@@ -345,7 +345,7 @@ export const updateCartProducts = async (req, res) => {
       status: arrayAnswer[0],
       message: arrayAnswer[1]
     }
-    return swWeb ? arrayAnswer : res.send(arrayAnswer);
+    return swWeb ? arrayAnswer : res.send(anwserObject);
   }
   catch (error) {
     logger.error("Error en CartManager/updateCartProducts: " + error)

@@ -1832,3 +1832,18 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-09T20:31:28.807Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
 2023-12-09T20:31:53.851Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
 2023-12-09T20:31:53.852Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
+2023-12-09T20:56:17.293Z [logs] error: Error en CartManager/getProductsinCartById: TypeError: res.status.send is not a function
+2023-12-09T20:56:52.189Z [logs] error: Error en CartManager/getProductsinCartById: TypeError: res.status.send is not a function
+2023-12-09T21:30:02.434Z [logs] error: error
+2023-12-09T21:44:26.092Z [logs] error: error
+2023-12-09T21:44:44.376Z [logs] error: error
+2023-12-09T21:45:52.290Z [logs] error: error
+2023-12-09T21:46:03.120Z [logs] error: error
+2023-12-09T21:46:10.580Z [logs] error: error
+2023-12-09T21:57:49.937Z [logs] error: error
+2023-12-09T22:06:48.704Z [logs] error: error
+2023-12-09T22:06:50.207Z [logs] error: error
+2023-12-09T22:06:51.327Z [logs] error: error
+2023-12-09T22:12:26.023Z [logs] error: Error en CartService/updateProductQuantityviaService: ReferenceError: CartById is not defined
+2023-12-09T22:13:13.415Z [logs] error: error
+2023-12-09T22:17:14.684Z [logs] error: error

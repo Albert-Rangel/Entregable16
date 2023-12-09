@@ -65,8 +65,9 @@ router.get("/PersonalCartStatic", async (req, res) => {
     res.render("cartStatic", {
         title: "Personal Shooping Cart",
         style: "catalog.css",
-        cid: allProducts
-    })
+        cid:  cid,
+        allProducts: allProducts,
+    }) 
 })
 
 router.get("/products", privateRoutes, async (req, res) => {
@@ -102,6 +103,9 @@ router.get("/products", privateRoutes, async (req, res) => {
 router.get("/carts/:cid", async (req, res) => {
 
     const cid = req.params.cid
+    console.log(cid)
+    console.log(typeof cid)
+
     const allProducts = await getProductsinCartById(cid)
     const isString = (value) => typeof value === 'string';
     if (isString(allProducts)) {
@@ -115,7 +119,7 @@ router.get("/carts/:cid", async (req, res) => {
     res.render("cart", {
         title: "Cart Products",
         style: "home.css",
-        Products: allProducts
+        Products: allProducts, cid
     })
 })
 
