@@ -11,6 +11,7 @@ import {
   getProducts,
   addProduct,
   deleteProduct,
+  updateProduct
 } from "./dao/Mongo/ProductManager.js";
 import ChatsRoutes from './router/chat.routes.js'
 import MockRoutes from './router/mock.routes.js'
@@ -88,8 +89,29 @@ Socketserverio.on('connection', async (socket) => {
     Socketserverio.emit('AllProducts', productList)
   })
 
-  socket.on('functionDeleteProduct', async ({pid,uid}) => {
-    await deleteProduct({pid, uid});
+  socket.on('updateProduct', async ({ pid, data }) => {
+    
+    const newProduct = {
+      description: !data.description? undefined:data.description ,
+      title: !data.title?undefined:data.title,
+      // price: parseInt(data.price, 10) == NaN? null:parseInt(data.price, 10),
+      price: !data.price?undefined:data.price,
+      thumbnail: !data.thumbnail?undefined:data.thumbnail,
+      code: !data.code?undefined:data.code,
+      // stock: parseInt(data.stock, 10)== NaN? null:parseInt(data.stock, 10),
+      stock: !data.stock?undefined:data.stock,
+      status: !data.status?undefined:data.status,
+      category: !data.category?undefined:data.category,
+      swWeb: true,
+      owner: !data.owner?undefined:data.owner,
+    }
+    await updateProduct({ pid, newProduct });
+    const productList = await getProducts({ limit: 50, page: 1, sort: null, query: null });
+    Socketserverio.emit('AllProducts', productList)
+  })
+
+  socket.on('functionDeleteProduct', async ({ pid, uid }) => {
+    await deleteProduct({ pid, uid });
     const productList = await getProducts({ limit: 20, page: 1, sort: null, query: null });
     Socketserverio.emit('AllProducts', productList)
   })

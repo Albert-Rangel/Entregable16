@@ -1875,3 +1875,9 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-10T14:12:29.239Z [logs] error: error
 2023-12-10T14:12:40.736Z [logs] error: error
 2023-12-10T14:34:39.321Z [logs] error: error
+2023-12-10T19:48:37.629Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"
+2023-12-10T19:54:21.542Z [logs] error: Error en ProductsService/getProductWpaginviaService: MongooseError: Operation `products.countDocuments()` buffering timed out after 10000ms
+2023-12-10T19:56:02.852Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"
+2023-12-10T19:59:48.679Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"
+2023-12-10T20:03:13.594Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"
+2023-12-10T20:06:01.743Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"

@@ -170,16 +170,21 @@ export const getProductById = async (req, res) => {
 }
 export const updateProduct = async (req, res) => {
   try {
+
     let pid = 0
     let swINtern = false
     let updatedproduct = {}
 
     if (req.params == undefined) {
+      // console.log("req.params " + req.params)
+      // console.log("req.body " + req.body)
+
       swINtern = true
       pid = req.pid;
-      updatedproduct.stock = req.stock;
+      updatedproduct = req.newProduct;
 
     } else {
+    
       pid = req.params.pid
       updatedproduct = req.body
     }
