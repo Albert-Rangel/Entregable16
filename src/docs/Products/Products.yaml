@@ -61,16 +61,16 @@ paths:
         description: id del producto a buscar
         schema:
           $type: String
-      responses: 
-        "200":
-          description: El producto fue modificado exitosamente
-        "500":
-          description: Algo fallo en la modificacion del producto desde la bd
       requestBody:
         content: 
           application/json:
             schema:
               $ref: '#components/requestBodies/updateProduct'
+      responses: 
+        "200":
+          description: El producto fue modificado exitosamente
+        "500":
+          description: Algo fallo en la modificacion del producto desde la bd
     delete:
       summary: Elimina un producto segun su id
       tags: 

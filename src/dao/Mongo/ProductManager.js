@@ -170,24 +170,33 @@ export const getProductById = async (req, res) => {
 }
 export const updateProduct = async (req, res) => {
   try {
-
+    console.log("entrro en update product")
     let pid = 0
     let swINtern = false
     let updatedproduct = {}
 
     if (req.params == undefined) {
+      console.log("entrro eninterno")
+
       swINtern = true
       pid = req.pid;
-      if(req.newProduct!= undefined){
+      if (req.newProduct != undefined) {
+        console.log("entrro en metodo update")
         updatedproduct = req.newProduct; // cuando actualiza el producto por metod de update product
-      }else{
+      } else {
+        console.log("entrro en metodo correo")
+
         updatedproduct = req.stock //cuando actualiza el stock que envia el correo
       }
 
     } else {
+      console.log("entrro en else mayor")
+
       pid = req.params.pid
       updatedproduct = req.body
     }
+    console.log(pid)
+    console.log(updatedproduct)
 
     let answer = await productService.updateProductviaService(pid, updatedproduct);
     const arrayAnswer = ManageAnswer(answer)
