@@ -77,6 +77,105 @@ paths:
       responses:
         "200":
           description: Carro encontrado
+  /api/carts/SpecificCart/{cid}:
+    delete:
+      summary: Elimina un carro en especifico
+      tags: 
+        - Carts
+      parameters:
+      - name : cid
+        in: path
+        required: true
+        description: id del carro a eliminar
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Carro encontrado
+  /api/carts/{cid}:
+    delete:
+      summary: Elimina todos los productos de un carro en especifico
+      tags: 
+        - Carts
+      parameters:
+      - name : cid
+        in: path
+        required: true
+        description: id del carro del cual se desea eliminar todos sus productos
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Carro encontrado
+  /api/carts/{cid}/product/{pid}:
+    put:
+      summary: Actualiza el Quantity de un producto especifico en un carro especifico
+      tags: 
+        - Carts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/updateQuantity'
+      parameters:
+      - name : cid
+        in: path
+        required: true
+        description: id del carro 
+        schema:
+          $type: String
+      - name : pid
+        in: path
+        required: true
+        description: id del producto al cual se debe actualizar su cantidad
+        schema:
+          $type: String
+      responses: 
+        "200":
+          description: El producto fue modificado exitosamente
+        "500":
+          description: Algo fallo en la modificacion del producto desde la bd
+    post:
+      summary: Agrega un producto especifico a un carro especifico
+      tags: 
+        - Carts
+      parameters:
+      - name : cid
+        in: path
+        required: true
+        description: id del carro a agregar
+        schema:
+          $type: String
+      - name : pid
+        in: path
+        required: true
+        description: id del producto a agregar
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Carro encontrado
+    delete:
+      summary: Elimina o resta un producto especifico a un carro especifico
+      tags: 
+        - Carts
+      parameters:
+      - name : cid
+        in: path
+        required: true
+        description: id del carro 
+        schema:
+          $type: String
+      - name : pid
+        in: path
+        required: true
+        description: id del producto a eliminar
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Carro encontrado
 components:
   schemas:
     Carts:
@@ -177,3 +276,12 @@ components:
         status: true
         category: Technology
         owner: adminCoder@coder.com
+    updateQuantity:
+      type: Object
+      properties:
+        quantity:
+          type: Number
+          description: Cantidad que deses que su producto tenga
+      example:
+        quantity: 5
+

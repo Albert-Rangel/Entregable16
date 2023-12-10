@@ -1870,3 +1870,8 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-10T03:43:30.157Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
 2023-12-10T03:43:30.158Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
 2023-12-10T13:30:39.668Z [logs] error: error
+2023-12-10T13:59:48.027Z [logs] error: error
+2023-12-10T14:12:26.208Z [logs] error: error
+2023-12-10T14:12:29.239Z [logs] error: error
+2023-12-10T14:12:40.736Z [logs] error: error
+2023-12-10T14:34:39.321Z [logs] error: error

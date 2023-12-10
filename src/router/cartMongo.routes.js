@@ -44,7 +44,7 @@ CartRoute.delete('/SpecificCart/:cid', deleteCart)
 //Elimina todos los productos dentro de un carro especifico
 CartRoute.delete('/:cid', deleteAllCartProducts)
 
-//Actualiza el Quantity Dde un producto especifico en un carro especifico
+//Actualiza el Quantity de un producto especifico en un carro especifico
 CartRoute.put('/:cid/product/:pid', updateCartProductQuantity)
 
 //Actualiza los productos en un carro especifico
