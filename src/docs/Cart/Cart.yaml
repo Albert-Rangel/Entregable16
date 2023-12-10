@@ -1,99 +1,105 @@
 paths:
-  /api/products/Npagin/:
+  /api/carts:
     get:
-      summary: Obtiene todos los productos
+      summary: Obtiene todos los carros
       tags: 
-        - Products
+        - Carts
       responses: 
         "200":
-          description: Los productos fueron obtenidos satisfactoriamente desde la bd. Tiene su paginacion
+          description: Los carros fueron obtenidos satisfactoriamente desde la bd. 
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#components/schemas/Products'
+                  $ref: '#components/schemas/Carts'
         "500":
-          description: Algo fallo en la busqueda de productos desde la bd
-  /api/products:
-    get:
-      summary: Obtiene todos los productos Paginados
+          description: Algo fallo en la busqueda de los carros desde la bd
+    post:
+      summary: Crea un carro sin productos      
       tags: 
-        - Products
+        - Carts
       responses: 
         "200":
-          description: Los productos fueron obtenidos satisfactoriamente desde la bd
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#components/schemas/Products'
+          description: El carro fue creado exitosamente en la bd. 
         "500":
-          description: Algo fallo en la busqueda de productos desde la bd
-  /api/products/{pid}:
+          description: Algo fallo en la creacion de carro desde la bd
+  /api/carts/byId/{cid}: 
     get:
-      summary: Obtiene un producto segun su id
+      summary: Obtiene un carro segun su id
       tags: 
-        - Products
+        - Carts
       parameters:
-      - name : pid
+      - name : cid
         in: path
         required: true
-        description: id del producto a buscar
+        description: id del carro a buscar
         schema:
           $type: String
       responses:
         "200":
-          description: Producto encontrado
+          description: Productos encontrados
           content:
             application/json:
               schema:
-                $ref: '#components/schemas/Products'
-    put:
-      summary: Actualiza un producto segun su id
+                $ref: '#components/schemas/Carts'
+  /api/carts/CartProd/{cid}:
+    get:
+      summary: Obtiene todos los productos de un carro segun su id
       tags: 
-        - Products
+        - Carts
       parameters:
-      - name : pid
+      - name : cid
         in: path
         required: true
-        description: id del producto a buscar
+        description: id del carro a buscar
         schema:
           $type: String
-      responses: 
+      responses:
         "200":
-          description: El producto fue modificado exitosamente
-        "500":
-          description: Algo fallo en la modificacion del producto desde la bd
-      requestBody:
-        content: 
-          application/json:
-            schema:
-              $ref: '#components/requestBodies/updateProduct'
-    delete:
-      summary: Elimina un producto segun su id
+          description: Productos encontrados
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Carts'
+  /api/carts/{cid}/purchase:
+    get:
+      summary: Realiza la generacion de un ticket para completar el proceso de compra
       tags: 
-        - Products
+        - Carts
       parameters:
-      - name : pid
+      - name : cid
         in: path
         required: true
-        description: id del producto a elimina
+        description: id del carro a buscar
         schema:
           $type: String
-      - in: query
-        name: uid
-        schema:
-          type: String
-        description: The numbers of items to return
-      responses: 
+      responses:
         "200":
-          description: El producto fue eliminado exitosamente
-        "500":
-          description: Algo fallo en la eliminacion del producto desde la bd
+          description: Carro encontrado
 components:
   schemas:
+    Carts:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado de mongo
+        products:
+          type: []
+          description: Nombre del producto
+      example:
+        _id: 656f373d61740b17ec638d66
+        title: Cellphone
+        description: Black Cellphone
+        price: 150
+        thumbnail: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Fire_Phone.jpg/1200px-Fire_Phone.jpg
+        code: a1a2a3
+        stock: 10
+        status: true
+        category: Technology
+        owner: adminCoder@coder.com
+        __v: 0
     Products:
       type: object
       properties:
@@ -130,18 +136,6 @@ components:
         __v:
           type: Number
           description: version en bd.
-      example:
-        _id: 656f373d61740b17ec638d66
-        title: Cellphone
-        description: Black Cellphone
-        price: 150
-        thumbnail: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Fire_Phone.jpg/1200px-Fire_Phone.jpg
-        code: a1a2a3
-        stock: 10
-        status: true
-        category: Technology
-        owner: adminCoder@coder.com
-        __v: 0
   requestBodies:
     updateProduct:
       type: object

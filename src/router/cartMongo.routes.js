@@ -14,14 +14,14 @@ import {
   } from "../dao/Mongo/CartManager.js";
 const CartRoute = Router();
 
+//obtiene todos los carros
+CartRoute.get('/', getCarts);
+
 //Obtiene un carro por su id
 CartRoute.get('/byId/:cid', getCartById);
 
 //Obtiene los productos de un carro por su id
 CartRoute.get('/CartProd/:cid', getProductsinCartById);
-
-//obtiene todos los carros
-CartRoute.get('/', getCarts);
 
 //Obtiene un carro por su id
 CartRoute.get('/:cid/purchase', purchaseCart); //API
