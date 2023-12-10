@@ -29,6 +29,8 @@ import mongoose from "mongoose"
 import cookieParser from "cookie-parser"
 import dotenv from "dotenv"
 import config from "./config/env.config.js"
+import swaggerJSDoc from "swagger-jsdoc"
+import swaggerUiExpress from "swagger-ui-express"
 import { errors } from "./middlewares/error.js"
 
 const app = express()
@@ -109,6 +111,19 @@ Socketserverio.on('connection', async (socket) => {
 })
 
 HTTPserver.on("error", (error) => console.log`Server error ${error}`)
+
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.1',
+    info: {
+      title: 'Documentazao',
+      description: 'Documentación',
+    },
+  },
+  apis: [`${__dirname}/docs/**/*.yaml`],
+};
+const specs = swaggerJSDoc(swaggerOptions);
+app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
 //Seccion de handlebars
 app.engine("handlebars", handlebars.engine())

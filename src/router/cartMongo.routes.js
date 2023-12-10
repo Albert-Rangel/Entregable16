@@ -10,7 +10,6 @@ import {
     deleteCartProduct,
     deleteAllCartProducts,
     updateCartProductQuantity,
-    updateCartProducts,
     purchaseCart
   } from "../dao/Mongo/CartManager.js";
 const CartRoute = Router();

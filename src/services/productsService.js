@@ -81,7 +81,7 @@ export default class productsService {
 
     async getProductbyIDviaService(pid) {
         try {
-
+            console.log(pid)
             const found = await productsModel.find({ _id: pid });
             if (found === undefined || found == [] || found == null || Object.keys(found).length === 0) {
                 return `E02|El producto con el id ${pid._id} no se encuentra agregado.`;

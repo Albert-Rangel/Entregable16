@@ -1,4 +1,5 @@
 
+import { query } from 'express';
 import productsService from '../../services/productsService.js';
 import usersService from '../../services/usersService.js';
 
@@ -144,6 +145,8 @@ export const getProducts_ = async (req, res) => {
 export const getProductById = async (req, res) => {
   try {
     const pid = req.params.pid
+    console.log(pid)
+
     const found = await productService.getProductbyIDviaService({ _id: pid });
 
     const isString = (value) => typeof value === 'string';
@@ -211,6 +214,7 @@ export const deleteProduct = async (req, res) => {
       pid = req.params.pid
       uid = req.query.uid
     }
+
     var swSuccess = await UsersService.verifyProductPermission(uid, pid)
 
     if (!swSuccess) {

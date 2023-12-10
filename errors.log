@@ -1847,3 +1847,25 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-09T22:12:26.023Z [logs] error: Error en CartService/updateProductQuantityviaService: ReferenceError: CartById is not defined
 2023-12-09T22:13:13.415Z [logs] error: error
 2023-12-09T22:17:14.684Z [logs] error: error
+2023-12-09T22:22:34.169Z [logs] error: error
+2023-12-09T22:26:16.180Z [logs] error: error
+2023-12-09T22:27:04.159Z [logs] error: error
+2023-12-09T22:27:23.714Z [logs] error: error
+2023-12-10T01:18:48.755Z [logs] error: Error en ProductsService/getProductbyIDviaService: CastError: Cast to ObjectId failed for value "{ _id: '{pid}' }" (type Object) at path "_id" for model "products"
+2023-12-10T01:22:16.034Z [logs] error: Error en ProductsService/getProductbyIDviaService: ReferenceError: log is not defined
+2023-12-10T01:22:50.194Z [logs] error: Error en ProductsService/getProductbyIDviaService: CastError: Cast to ObjectId failed for value "{ _id: '{pid}' }" (type Object) at path "_id" for model "products"
+2023-12-10T01:27:35.493Z [logs] error: Error en ProductsService/getProductbyIDviaService: CastError: Cast to ObjectId failed for value "{ _id: '{pid}' }" (type Object) at path "_id" for model "products"
+2023-12-10T03:26:51.219Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T03:26:51.220Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
+2023-12-10T03:29:53.907Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T03:29:53.908Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
+2023-12-10T03:31:20.546Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T03:31:20.548Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
+2023-12-10T03:37:22.694Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T03:37:22.695Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
+2023-12-10T03:40:33.050Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T03:40:33.051Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
+2023-12-10T03:42:27.956Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T03:42:27.958Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
+2023-12-10T03:43:30.157Z [logs] error: Error en UseressService/changeRol: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T03:43:30.158Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: Cannot access 'arrayAnswer' before initialization
