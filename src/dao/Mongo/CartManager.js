@@ -66,19 +66,23 @@ export const addCartProducts = async (req, res) => {
   try {
     let pid = 0
     let cid = 0
-    logger.info("info")
-    logger.http("http")
-    logger.error("error")
+    let uid = 0
     if (req.params != undefined) {
+      console.log("entro en el api")
       pid = req.params.pid
       cid = req.params.cid
+      uid = req.query.uid
     } else {
       swWeb = true
+      console.log("entro en el web")
       cid = req.cid
       pid = req.pid
+      uid = req.uid
     }
-
-    const answer = await CartsService.addCartProductsviaService(pid, cid)
+    console.log(cid)
+    console.log(pid)
+    console.log(uid)
+    const answer = await CartsService.addCartProductsviaService(pid, cid, uid)
     const arrayAnswer = ManageAnswer(answer)
     return swWeb ? answer : res.status(arrayAnswer[0]).send({
       status: arrayAnswer[0],
@@ -432,7 +436,7 @@ export const purchaseCart = async (req, res) => {
       console.log("suma total", totalsum)
 
       // //Actualizar el Quantity de ese producto
-      const updateProductQTT = await updateProduct({ pid, "stock": stock })
+      const updateProductQTT = await updateProduct({ pid, stock })
 
       if (isString(updateProductQTT) && updateProductQTT.substring(0, 3) != "SUC") {
         const arrayAnswer = ManageAnswer(updateProductQTT)

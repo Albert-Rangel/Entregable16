@@ -97,44 +97,10 @@ export default class productsService {
 
     async updateProductviaService(pid, product) {
         try {
-            console.log("entro en el service")
 
             const { title, description, price, thumbnail, code, stock, status, category, owner } = product;
-            // console.log("title " +  title)
-            // console.log("typeof title " +  typeof title)
-
-            // console.log("description " +  description)
-            // console.log("typeof description " +  typeof description)
-
-            // console.log("price " +  price)
-            // console.log("typeof price " +  typeof price)
-
-            // console.log("thumbnail " +  thumbnail)
-            // console.log("typeof thumbnail " +  typeof thumbnail)
-
-            // console.log("code " +  code)
-            // console.log("typeof code " +  typeof code)
-
-            // console.log("stock " +  stock)
-            // console.log("typeof stock " +  typeof stock)
-
-            // console.log("status " +  status)
-            // console.log("typeof status " +  typeof status)
-
-            // console.log("category " +  category)
-            // console.log("typeof category " +  typeof category)
-
-            // console.log("owner " +  owner)
-            // console.log("typeof owner " +  typeof owner)
-
-
-            // console.log("pid " +  pid)
-            // console.log("typeof pid " +  typeof pid)
-
-
-
+            
             const found = await productsModel.find({ _id: pid });
-            console.log("found " + found)
 
             if (found == undefined || Object.keys(found).length === 0) return `E02|El producto con el id ${pid} no se encuentra agregado.`;
 
@@ -155,7 +121,6 @@ export default class productsService {
                     category,
                     owner
                 });
-            console.log("termino de actualizar ")
 
             return `SUC|El producto con el id : ${pid} fue actualizado.`;
 

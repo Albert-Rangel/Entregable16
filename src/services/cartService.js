@@ -1,6 +1,8 @@
 
 import { cartsModel } from '../dao/models/carts.model.js';
 import { productsModel } from '../dao/models/products.model.js';
+import { userModel } from '../dao/models/user.model.js';
+
 import { logger } from '../utils/logger.js';
 
 export default class cartsService {
@@ -19,7 +21,7 @@ export default class cartsService {
         }
     }
 
-    async addCartProductsviaService(pid, cid) {
+    async addCartProductsviaService(pid, cid, uid) {
         try {
 
             const cartObject = await cartsModel.findById({ _id: cid })
@@ -28,6 +30,25 @@ export default class cartsService {
             const productObject = await productsModel.find({ _id: pid })
 
             if (productObject == undefined || Object.keys(productObject).length === 0) return `E02|El producto con el id ${pid} no se encuentra agregado.`;
+
+            const user = await userModel.find({ _id: uid });
+            const userRole = user[0].role
+            const userEmail = user[0].email
+            console.log(userRole)
+            console.log(userEmail)
+
+
+            if (userRole === "Premium" || userRole === "premium") {
+                console.log("entro en premium" )
+
+                console.log(productObject)
+                let productOwner = productObject[0].owner
+                console.log(productOwner )
+
+                if (productOwner == userEmail) {
+                    return `E02|No puede agregar este producto debido a que usted lo creo.`;
+                }
+            }
 
             if (cartObject.products.find(prod => prod.id == pid)) {
                 let ProductinsideCart = cartObject.products.find(prod => prod.id == pid)
@@ -221,7 +242,7 @@ export default class cartsService {
 
             const productObject = await productsModel.find({ _id: pid })
             if (productObject == undefined || Object.keys(productObject).length === 0 || productObject.length === 0) return `E02|El producto con el id ${pid} no se encuentra agregado.`;
-            
+
             //valido si existe el producto dentro del carro
             let ProductinsideCart = cartObject.products.find(prod => prod.id == pid)
 

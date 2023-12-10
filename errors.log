@@ -1881,3 +1881,18 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-10T19:59:48.679Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"
 2023-12-10T20:03:13.594Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"
 2023-12-10T20:06:01.743Z [logs] error: Error en ProductsService/updateProductviaService: CastError: Cast to Number failed for value "NaN" (type number) at path "price"
+2023-12-10T21:15:20.608Z [logs] error: Error en CartService/addCartProductsviaService: ReferenceError: userModel is not defined
+2023-12-10T21:17:30.188Z [logs] error: Error en CartService/addCartProductsviaService: ReferenceError: userModel is not defined
+2023-12-10T21:19:50.177Z [logs] error: Error en CartService/addCartProductsviaService: ReferenceError: userModel is not defined
+2023-12-10T21:20:45.450Z [logs] error: Error en CartService/addCartProductsviaService: ReferenceError: userModel is not defined
+2023-12-10T21:21:08.090Z [logs] error: Error en CartService/addCartProductsviaService: ReferenceError: userModel is not defined
+2023-12-10T21:22:32.675Z [logs] error: Error en CartService/addCartProductsviaService: ReferenceError: userModel is not defined
+2023-12-10T21:34:11.739Z [logs] error: Error en CartService/addCartProductsviaService: CastError: Cast to ObjectId failed for value "" (type string) at path "_id" for model "users"
+2023-12-10T21:43:08.584Z [logs] error: Error en CartService/addCartProductsviaService: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T21:44:36.311Z [logs] error: Error en ProductsService/getProductWpaginviaService: MongooseError: Operation `products.countDocuments()` buffering timed out after 10000ms
+2023-12-10T21:46:43.674Z [logs] error: Error en CartService/addCartProductsviaService: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T21:51:20.551Z [logs] error: Error en CartService/addCartProductsviaService: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T21:55:13.151Z [logs] error: Error en CartService/addCartProductsviaService: TypeError: Cannot read properties of undefined (reading 'role')
+2023-12-10T22:05:46.026Z [logs] error: Error en ProductsService/updateProductviaService: TypeError: Cannot destructure property 'title' of 'product' as it is undefined.
+2023-12-10T22:10:51.699Z [logs] error: Error en ProductsService/updateProductviaService: TypeError: Cannot destructure property 'title' of 'product' as it is undefined.
+2023-12-10T22:15:15.833Z [logs] error: Error en ProductsService/updateProductviaService: TypeError: Cannot destructure property 'title' of 'product' as it is undefined.

@@ -33,11 +33,11 @@ function updateProductCounter(data) {
 
 // Función para actualizar la lista de productos disponibles en el catalogo en mi página web
 async function updateProductCatalogList(productList) {
-    
+
     const catalogDiv = document.getElementById("catalogo");
     let contenidocambiante = ""
 
-    productList.docs.forEach(({ thumbnail, price, description, _id, code, stock, status, category, title }) => {
+    productList.docs.forEach(({ thumbnail, price, description, _id, code, stock, status, category, title , owner}) => {
         contenidocambiante += `<div class="form-container">
             <div>
                 <div class="card">
@@ -51,6 +51,7 @@ async function updateProductCatalogList(productList) {
                         Stock: ${stock}</br> 
                         Status: ${status}</br> 
                         Category: ${category}</br> 
+                        Owner: ${owner}</br> 
                         <button id="btn-catalogo-${_id}" class="btn btn-success">Agregar</button>
                     </div>
                 </div>
@@ -91,13 +92,16 @@ const botonesCatalogo = async (CatalogList) => {
     for (const catalogo of CatalogList.docs) {
         const botonId = `btn-catalogo-${catalogo.id}`;
         const botonNodo = document.getElementById(botonId);
+        let uid = document.getElementById("uid").innerText;
+        console.log(uid)
+
         botonNodo.addEventListener("click", (evt) => {
             evt.preventDefault()
             let pid = catalogo.id;
             const cartid = document.getElementById('cartid').innerHTML;
 
             socket.emit('addNewProducttoCart', {
-                pid, cartid,
+                pid, cartid, uid
             })
         });
     }

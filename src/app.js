@@ -65,7 +65,6 @@ Socketserverio.on('connection', async (socket) => {
   console.log(`client connected with id ${socket.id}`)
 
   const productList = await getProducts({ limit: 20, page: 1, sort: null, query: null });
-
   Socketserverio.emit('AllProducts', productList)
 
   Socketserverio.emit('AllProductsCart', productList)
@@ -90,20 +89,20 @@ Socketserverio.on('connection', async (socket) => {
   })
 
   socket.on('updateProduct', async ({ pid, data }) => {
-    
+
     const newProduct = {
-      description: !data.description? undefined:data.description ,
-      title: !data.title?undefined:data.title,
+      description: !data.description ? undefined : data.description,
+      title: !data.title ? undefined : data.title,
       // price: parseInt(data.price, 10) == NaN? null:parseInt(data.price, 10),
-      price: !data.price?undefined:data.price,
-      thumbnail: !data.thumbnail?undefined:data.thumbnail,
-      code: !data.code?undefined:data.code,
+      price: !data.price ? undefined : data.price,
+      thumbnail: !data.thumbnail ? undefined : data.thumbnail,
+      code: !data.code ? undefined : data.code,
       // stock: parseInt(data.stock, 10)== NaN? null:parseInt(data.stock, 10),
-      stock: !data.stock?undefined:data.stock,
-      status: !data.status?undefined:data.status,
-      category: !data.category?undefined:data.category,
+      stock: !data.stock ? undefined : data.stock,
+      status: !data.status ? undefined : data.status,
+      category: !data.category ? undefined : data.category,
       swWeb: true,
-      owner: !data.owner?undefined:data.owner,
+      owner: !data.owner ? undefined : data.owner,
     }
     await updateProduct({ pid, newProduct });
     const productList = await getProducts({ limit: 50, page: 1, sort: null, query: null });
@@ -125,9 +124,9 @@ Socketserverio.on('connection', async (socket) => {
     Socketserverio.emit('cartProducts', products)
   })
 
-  socket.on('addNewProducttoCart', async ({ pid, cartid }) => {
+  socket.on('addNewProducttoCart', async ({ pid, cartid, uid }) => {
     const cid = cartid.substr(1, cartid.length - 1);
-    const newproductincart = await addCartProducts({ pid, cid })
+    const newproductincart = await addCartProducts({ pid, cid, uid })
     Socketserverio.emit('newProductinCart', newproductincart)
   })
 })

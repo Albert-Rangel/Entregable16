@@ -176,15 +176,15 @@ export const updateProduct = async (req, res) => {
     let updatedproduct = {}
 
     if (req.params == undefined) {
-      // console.log("req.params " + req.params)
-      // console.log("req.body " + req.body)
-
       swINtern = true
       pid = req.pid;
-      updatedproduct = req.newProduct;
+      if(req.newProduct!= undefined){
+        updatedproduct = req.newProduct; // cuando actualiza el producto por metod de update product
+      }else{
+        updatedproduct = req.stock //cuando actualiza el stock que envia el correo
+      }
 
     } else {
-    
       pid = req.params.pid
       updatedproduct = req.body
     }

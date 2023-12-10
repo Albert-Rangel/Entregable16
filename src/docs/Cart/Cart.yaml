@@ -153,6 +153,11 @@ paths:
         description: id del producto a agregar
         schema:
           $type: String
+      - in: query
+        name: uid
+        schema:
+          type: String
+        description: el id del usuario
       responses:
         "200":
           description: Carro encontrado

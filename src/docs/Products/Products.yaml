@@ -86,7 +86,7 @@ paths:
         name: uid
         schema:
           type: String
-        description: The numbers of items to return
+        description: el id del usuario
       responses: 
         "200":
           description: El producto fue eliminado exitosamente
